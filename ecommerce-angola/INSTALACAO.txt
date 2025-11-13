@@ -1,0 +1,178 @@
+═══════════════════════════════════════════════════════════════
+    GUIA RÁPIDO DE INSTALAÇÃO - E-COMMERCE ANGOLA
+═══════════════════════════════════════════════════════════════
+
+📋 PRÉ-REQUISITOS:
+------------------
+✓ Conta de hospedagem (Hostinger recomendada)
+✓ PHP 7.4 ou superior
+✓ MySQL 5.7 ou superior
+✓ Acesso ao cPanel
+
+
+🚀 PASSO A PASSO RÁPIDO:
+------------------------
+
+1️⃣ UPLOAD DOS ARQUIVOS
+   - Acesse o cPanel da Hostinger
+   - Vá em "Gerenciador de Arquivos"
+   - Entre na pasta "public_html"
+   - Faça upload de todos os arquivos
+   - Aguarde a conclusão do upload
+
+
+2️⃣ CRIAR BANCO DE DADOS
+   - No cPanel, procure por "MySQL Databases"
+   - Clique em "Criar novo banco de dados"
+   - Nome: ecommerce_angola
+   - Anote o nome completo do banco (ex: usuario_ecommerce_angola)
+
+   - Crie um usuário MySQL:
+     * Nome de usuário: escolha um nome
+     * Senha: crie uma senha forte
+     * Anote usuário e senha!
+
+   - Adicione o usuário ao banco de dados
+   - Marque "TODAS AS PERMISSÕES"
+   - Clique em "Fazer Alterações"
+
+
+3️⃣ IMPORTAR ESTRUTURA DO BANCO
+   - No cPanel, acesse "phpMyAdmin"
+   - Selecione o banco de dados criado
+   - Clique na aba "Importar"
+   - Clique em "Escolher arquivo"
+   - Selecione o arquivo "database.sql"
+   - Clique em "Executar"
+   - Aguarde a mensagem de sucesso
+
+
+4️⃣ CONFIGURAR CONEXÃO
+   - No Gerenciador de Arquivos, navegue até:
+     config/config.php
+
+   - Clique com botão direito > Editar
+
+   - Altere estas linhas (por volta da linha 5-8):
+
+     define('DB_HOST', 'localhost');
+     define('DB_NAME', 'usuario_ecommerce_angola');  ← Seu banco
+     define('DB_USER', 'usuario_mysql');             ← Seu usuário
+     define('DB_PASS', 'senha_mysql');               ← Sua senha
+
+   - Altere também a URL (linha 11):
+
+     define('SITE_URL', 'https://seudominio.com');  ← Sua URL
+
+   - Salve o arquivo (Ctrl+S)
+
+
+5️⃣ CRIAR PASTA DE IMAGENS
+   - No Gerenciador de Arquivos, navegue até:
+     assets/images/
+
+   - Se não existir uma pasta "produtos", crie:
+     * Clique em "+ Pasta"
+     * Nome: produtos
+     * Criar
+
+   - Clique com botão direito na pasta "produtos"
+   - Selecione "Permissões"
+   - Digite: 755
+   - Clique em "Alterar Permissões"
+
+
+6️⃣ TESTAR INSTALAÇÃO
+   - Abra seu navegador
+   - Acesse: https://seudominio.com
+   - Deve aparecer a página inicial da loja
+
+
+7️⃣ ACESSAR PAINEL ADMIN
+   URL: https://seudominio.com/admin/
+   E-mail: admin@loja.ao
+   Senha: admin123
+
+   ⚠️ IMPORTANTE: Altere a senha após primeiro acesso!
+
+
+═══════════════════════════════════════════════════════════════
+    VERIFICAÇÃO FINAL
+═══════════════════════════════════════════════════════════════
+
+✅ Checklist:
+□ Banco de dados criado
+□ Arquivo database.sql importado com sucesso
+□ Arquivo config.php editado com credenciais corretas
+□ Pasta assets/images/produtos/ criada com permissões 755
+□ Site carrega na URL principal
+□ Login no painel admin funciona
+
+
+═══════════════════════════════════════════════════════════════
+    PROBLEMAS COMUNS
+═══════════════════════════════════════════════════════════════
+
+❌ Erro: "Erro de conexão com banco de dados"
+   Solução: Verifique as credenciais em config/config.php
+
+❌ Erro: "Página em branco"
+   Solução:
+   1. Ative debug em config/config.php (linha 30):
+      define('DEBUG_MODE', true);
+   2. Verifique os erros que aparecem
+   3. Consulte os logs no cPanel
+
+❌ Erro: "Imagens não aparecem"
+   Solução:
+   1. Verifique se a pasta produtos existe
+   2. Verifique permissões da pasta (755 ou 777)
+   3. Tente fazer upload manual de uma imagem
+
+❌ Erro: "Sessão não funciona"
+   Solução:
+   1. Verifique se PHP session está habilitado
+   2. Limpe cookies do navegador
+   3. Entre em contato com suporte da hospedagem
+
+
+═══════════════════════════════════════════════════════════════
+    PRÓXIMOS PASSOS
+═══════════════════════════════════════════════════════════════
+
+Após instalação bem-sucedida:
+
+1. SEGURANÇA:
+   ✓ Altere senha do admin
+   ✓ Configure SSL/HTTPS
+   ✓ Faça backup do banco de dados
+
+2. CONFIGURAÇÃO:
+   ✓ Adicione seus produtos
+   ✓ Configure categorias
+   ✓ Personalize cores e logo
+   ✓ Atualize informações de contato
+
+3. PERSONALIZAÇÃO:
+   ✓ Adicione suas imagens de produtos
+   ✓ Configure métodos de pagamento reais
+   ✓ Ajuste frete e taxas
+   ✓ Configure e-mail de notificações
+
+
+═══════════════════════════════════════════════════════════════
+    SUPORTE
+═══════════════════════════════════════════════════════════════
+
+📚 Documentação completa: Leia o arquivo README.md
+
+💬 Dúvidas sobre hospedagem: Contate o suporte da Hostinger
+
+🔧 Problemas técnicos: Verifique os logs de erro no cPanel
+
+
+═══════════════════════════════════════════════════════════════
+
+Boa sorte com sua loja! 🚀🇦🇴
+
+═══════════════════════════════════════════════════════════════

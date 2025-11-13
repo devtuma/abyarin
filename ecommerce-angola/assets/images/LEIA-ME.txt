@@ -1,0 +1,38 @@
+INSTRUÇÕES PARA IMAGENS
+=======================
+
+Esta pasta contém as imagens do e-commerce.
+
+ESTRUTURA:
+----------
+assets/images/
+├── produtos/        <- Imagens dos produtos (CRIAR ESTA PASTA!)
+└── sem-imagem.jpg   <- Imagem padrão quando produto não tem foto
+
+IMPORTANTE:
+-----------
+1. Crie a pasta "produtos" manualmente
+2. Configure permissões 755 ou 777 para a pasta produtos
+3. Faça upload das imagens dos produtos nesta pasta
+
+FORMATOS ACEITOS:
+-----------------
+- JPG / JPEG
+- PNG
+- GIF
+- WEBP
+
+TAMANHOS RECOMENDADOS:
+----------------------
+- Produtos: 800x800 pixels (quadrado)
+- Peso máximo: 5MB por imagem
+- Resolução: 72 DPI para web
+
+DICA:
+-----
+Use ferramentas online gratuitas para otimizar imagens:
+- TinyPNG (tinypng.com)
+- Compressor.io (compressor.io)
+- Squoosh (squoosh.app)
+
+Imagens otimizadas carregam mais rápido e melhoram a experiência do usuário!
