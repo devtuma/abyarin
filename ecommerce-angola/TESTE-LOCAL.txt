@@ -1,0 +1,147 @@
+# COMO TESTAR O E-COMMERCE LOCALMENTE
+===============================================
+
+Se você quer testar o e-commerce no seu computador antes de hospedar,
+siga estas instruções:
+
+## OPÇÃO 1: XAMPP (Recomendado para Windows)
+--------------------------------------------
+
+### 1. Baixar e Instalar XAMPP
+   - Acesse: https://www.apachefriends.org/
+   - Baixe XAMPP para seu sistema operacional
+   - Instale normalmente
+
+### 2. Copiar os arquivos
+   - Localize a pasta de instalação do XAMPP
+     * Windows: C:\xampp\htdocs\
+     * Mac/Linux: /opt/lampp/htdocs/
+
+   - Copie a pasta 'ecommerce-angola' para dentro de 'htdocs'
+
+### 3. Criar Banco de Dados
+   - Abra o navegador e acesse: http://localhost/phpmyadmin
+   - Clique em "Novo" para criar um banco de dados
+   - Nome: ecommerce_angola
+   - Charset: utf8mb4_unicode_ci
+   - Clique em "Criar"
+
+### 4. Importar a estrutura
+   - Selecione o banco 'ecommerce_angola'
+   - Clique em "Importar"
+   - Escolha o arquivo 'database.sql'
+   - Clique em "Executar"
+
+### 5. Configurar conexão
+   - Abra o arquivo: ecommerce-angola/config/config.php
+   - Altere estas linhas:
+
+     define('DB_HOST', 'localhost');
+     define('DB_NAME', 'ecommerce_angola');
+     define('DB_USER', 'root');           <- Para XAMPP, use 'root'
+     define('DB_PASS', '');               <- Para XAMPP, deixe vazio
+     define('SITE_URL', 'http://localhost/ecommerce-angola');
+
+   - Salve o arquivo
+
+### 6. Acessar o site
+   - Abra o navegador
+   - Acesse: http://localhost/ecommerce-angola/
+   - Admin: http://localhost/ecommerce-angola/admin/
+
+
+## OPÇÃO 2: WAMP (Windows)
+--------------------------
+Similar ao XAMPP, mas para Windows:
+   - Baixe em: https://www.wampserver.com/
+   - Pasta de instalação: C:\wamp64\www\
+   - Siga os mesmos passos do XAMPP
+
+
+## OPÇÃO 3: MAMP (Mac)
+----------------------
+Para usuários de Mac:
+   - Baixe em: https://www.mamp.info/
+   - Pasta de instalação: /Applications/MAMP/htdocs/
+   - Siga os mesmos passos do XAMPP
+
+
+## CREDENCIAIS PADRÃO PARA DESENVOLVIMENTO LOCAL
+------------------------------------------------
+
+MySQL (XAMPP/WAMP/MAMP):
+   Usuário: root
+   Senha: (vazio) ou root
+
+Admin do E-commerce:
+   E-mail: admin@loja.ao
+   Senha: admin123
+
+
+## TESTANDO AS FUNCIONALIDADES
+------------------------------
+
+1. Acesse a página inicial
+2. Navegue pelos produtos
+3. Adicione produtos ao carrinho
+4. Faça um registro de usuário
+5. Finalize uma compra de teste
+6. Acesse o painel admin
+7. Gerencie produtos e pedidos
+
+
+## PROBLEMAS COMUNS
+-------------------
+
+❌ Erro: "Erro de conexão com banco de dados"
+   ✓ Verifique se o MySQL está rodando no XAMPP
+   ✓ Verifique as credenciais em config/config.php
+   ✓ Confirme que o banco foi criado
+
+❌ Erro: "Call to undefined function mysqli_connect"
+   ✓ Ative a extensão mysqli no php.ini
+   ✓ No XAMPP: abra xampp/php/php.ini
+   ✓ Remova o ; antes de: extension=mysqli
+   ✓ Reinicie o Apache
+
+❌ Erro: Página em branco
+   ✓ Ative exibição de erros em config.php:
+     define('DEBUG_MODE', true);
+   ✓ Verifique o erro que aparece
+
+❌ Imagens não aparecem
+   ✓ Crie a pasta: assets/images/produtos/
+   ✓ As imagens de exemplo não estão incluídas
+
+
+## PRÓXIMO PASSO: HOSPEDAR ONLINE
+---------------------------------
+
+Depois de testar localmente e tudo funcionar:
+
+1. Contrate uma hospedagem (Hostinger, etc)
+2. Faça upload dos arquivos via FTP ou cPanel
+3. Importe o banco de dados
+4. Configure config.php com dados da hospedagem
+5. Seu e-commerce estará online!
+
+
+## EXPORTAR BANCO DE DADOS PARA HOSPEDAGEM
+------------------------------------------
+
+Quando for migrar para hospedagem online:
+
+1. No phpMyAdmin local
+2. Selecione o banco 'ecommerce_angola'
+3. Clique em "Exportar"
+4. Deixe as opções padrão
+5. Clique em "Executar"
+6. Salve o arquivo .sql
+7. Importe este arquivo no phpMyAdmin da hospedagem
+
+
+===============================================
+
+Qualquer dúvida, consulte os arquivos:
+- README.md (documentação completa)
+- INSTALACAO.txt (guia para hospedagem)
